@@ -1,0 +1,359 @@
+/*---------------------------------style général de la page---------------------------------------------------*/ 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*outline: 1px solid red;*/
+}
+body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #b6dbfa;}
+/*--------------------------------------------------h1 (titre principal)---------------------------------------*/ 
+    #neon {
+        margin-top: 5px;
+        font-size: 3em;
+        color: #fff;
+        text-shadow:
+          0 0 5px #fff,
+          0 0 10px #fff,
+          0 0 20px #fff,
+          0 0 40px rgba(0, 255, 255, 0.747),
+          0 0 80px rgba(0, 255, 255, 0.747),
+          0 0 90px rgba(0, 255, 255, 0.747),
+          0 0 100px rgba(0, 255, 255, 0.747),
+          0 0 150px rgba(0, 255, 255, 0.747);
+      }
+/*------------------------------------------------titre--------------------------------------------------*/  
+h2{
+    text-align: center;
+    margin: 2ch;
+    font-size: 2em;
+}
+/*------------------------------------------------------menu------------------------------------------------------*/
+.navbar{
+  z-index: 5;
+  height: 100px;
+  width: 100%;
+  padding: 19px 30px;
+  background-color: #1b4cd3;
+  position: relative;
+}
+.navbar .nav-header{
+  display: inline;
+}
+.navbar .nav-header .nav-logo{
+  display: inline-block;
+  margin-top: -7px;
+}
+.navbar .nav-links{
+  display: inline;
+  float: right;
+  font-size: 18px;
+}
+.navbar .nav-links .loginBtn{
+  display: inline-block;
+  padding: 5px 15px;
+  margin-left: 20px;
+  font-size: 17px;
+  color: black;
+  background-color: white;
+}
+.navbar .nav-links a {
+  padding: 10px 12px;
+  text-decoration: none;
+  font-weight: 550;
+  color: white;
+}
+.navbar .nav-links a:hover{
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.navbar #nav-check, .navbar .nav-btn{
+  display: none;
+}
+@media (max-width:920px) {
+    .navbar .nav-links a:hover{
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+    #search-icon{
+      margin-right: 45%;
+    }
+    .navbar .nav-btn{
+      display: inline-block;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+    }
+    .navbar .nav-btn label {
+      display: inline-block;
+      width: 80px;
+      height: 70px;
+      padding: 25px;
+    }
+    .navbar .nav-btn label span {
+      display: block;
+      height: 10px;
+      width: 25px;
+      border-top: 3px solid #eee;
+    }
+    .navbar .nav-btn label:hover, .navbar #nav-check:checked ~ .nav-btn label {
+      background-color: rgb(9, 14, 90);
+      transition: all 0.5s ease;
+    }
+    .navbar .nav-links{
+      position: absolute;
+      display: block;
+      text-align: center;
+      width: 50%;
+      background-color: rgb(9, 14, 90);
+      transition: all 0.3s ease-in;
+      overflow-y: hidden;
+      top: 70px;
+      right: 0px;
+    }
+    .navbar .nav-links a {
+      display: block;
+    }
+    .navbar #nav-check:not(:checked) ~ .nav-links {
+      height: 0px;
+    }
+    .navbar #nav-check:checked ~ .nav-links {
+      height: calc(100vh - 320px);
+      overflow-y: auto;
+    }
+    .navbar .nav-links .loginBtn {
+      padding: 10px 40px ;
+      margin: 20px;
+      font-size:  18px;
+      font-weight: bold;
+      color: black;
+      background-color: white;
+    }
+    .navbar .nav-links .dropdown, .navbar .nav-links .dropdown2 {
+      float: none;
+      width: 100%;
+    }
+    .navbar .nav-links .drop-content, .navbar .nav-links .drop-content2 {
+      position: relative;
+      background-color: rgb(220, 220, 250);
+      top: 0px;
+      left: 0px;
+    }
+    .navbar .nav-links .drop-content a {
+      color: rgb(9, 14, 90);
+    }  
+    #buttonsearch{
+      text-align: center;
+      margin: 25px;
+    }
+    #case{
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+}
+.dropdown{
+  position: relative;
+  display: inline-block;
+}
+.drop-content, .drop-content2 {
+  display: none;
+  position: absolute;
+  background-color: #1b4cd3;
+  min-width: 120px;
+  font-size: 16px;
+  top: 34px;
+  z-index: 1;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
+}
+.dropdown:hover .drop-content, .dropdown2:hover .drop-content2 {
+  display: block;
+}
+.drop-content a {
+  padding: 12px 10px;
+  border-bottom: 1px solid rgb(197, 197, 250);
+  display: block;
+  transition: all 0.5s ease !important;
+}
+.dropBtn .drop-content a:hover {
+  background-color: rgb(230, 230, 230);
+}
+.dropdown:hover .dropBtn, .dropdown2:hover .dropBtn2 {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.dropdown2 .drop-content2 {
+  position: absolute;
+  left: 120px;
+  top: 126px;
+}
+.dropBtn2 i {
+  margin-left: 15px;
+}
+/*barre de recherche*/ 
+#case{
+text-align: right;
+}
+#search {
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 200px;
+  height: 30px;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid white;
+  background: transparent;
+  font-size: 20px;
+  font-family: "Questrial", sans-serif;
+  color: white;
+}
+#search::-webkit-input-placeholder {
+  color: white;
+  opacity: 0.8;
+}
+#search-icon {
+  float: right;
+  color: white;
+  font-size: 30px;
+  margin-left: -20px;
+}
+#buttonsearch{
+  padding: 0.2rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 17px;
+  letter-spacing: 1px;
+  cursor:pointer;
+  transition: all .5s;
+  background: transparent;
+}
+#buttonsearch:focus{
+  outline: none;
+}
+#buttonsearch{
+  background: #ffffff;
+}
+#buttonsearch:hover{
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 1rem rgba(0, 0,0,.5);
+}
+/*------------------------------------------------grille de résultat-----------------------------------------------------------*/
+.container{
+    padding:75px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: baseline;
+    align-content: center;
+}
+.long{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.text{
+    width:45%;
+    height:100%;
+    text-align: center;
+}
+.txtdes{
+    font-size: 1em;
+}
+.txt{
+    padding: 15px 50px 15px 50px;
+}
+@media (max-width:1015px){
+    .container{
+        padding:20px;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    .affiches{
+        width:125%;
+        height:70%;
+    }
+    .txt{
+        padding: 10px;
+    }
+    .text{
+        width:100%;
+        height:100%;
+        text-align: center;
+    }
+}
+#rea{
+  text-decoration: none;
+  color: #000;
+}
+/*-------------------------------------------------------boutton ajouter au panier--------------------------------------------------------------*/
+.button {
+    text-decoration: none;
+    margin: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 15px;
+    letter-spacing: 2px;
+    position: relative;
+    background-color: #1d68ca;
+    border: none;
+    color: #fff;
+    padding: 20px;
+    width: 230px;
+    text-align: center;
+    transition-duration: 0.5s;
+    overflow: hidden;
+    box-shadow: 0 5px 15px #193047;
+    border-radius: 4px;
+}
+.button:hover {
+    background: #fff;
+    box-shadow: 0px 2px 10px 5px #0486f0;
+    color: #000;
+}
+.button:focus { outline:0;
+}
+/*-----------------------------------------------footer---------------------------------------------------------*/
+.footer{
+  background:#000;
+  padding:30px 0px;
+  text-align:center;
+}
+.footer .row{
+  width:100%;
+  margin:1% 0%;
+  padding:0.6% 0%;
+  color:gray;
+  font-size:0.8em;
+}
+.footer .row a{
+  text-decoration:none;
+  color:gray;
+  transition:0.5s;
+}
+.footer .row a:hover{
+  color:#fff;
+}
+.footer .row ul{
+  width:100%;
+}
+.footer .row ul li{
+  display:inline-block;
+  margin:0px 30px;
+}
+.footer .row a i{
+  font-size:2em;
+  margin:0% 1%;
+}
+@media (max-width:720px){
+  .footer{
+    text-align:left;
+    padding:5%;
+  }
+  .footer .row ul li{
+    display:block;
+    margin:10px 0px;
+    text-align:left;
+  }
+  .footer .row a i{
+    margin:0% 3%;
+  }
+}
